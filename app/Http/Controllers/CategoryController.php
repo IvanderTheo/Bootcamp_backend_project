@@ -16,7 +16,7 @@ class CategoryController extends Controller
             // Try to get from cache
             $cacheKey = 'categories_all';
             $categories = Cache::remember($cacheKey, self::CACHE_TTL, function () {
-                return CourseCategory::all();
+                return CourseCategory::all()->toArray();
             });
 
             return response()->json([
