@@ -134,4 +134,26 @@ class AuthController extends Controller
             'data' => $request->user(),
         ], 200);
     }
+
+    public function user()
+    {
+        return response()->json([
+            'data' => User::paginate(10)
+        ]);
+    }
+
+    public function userDetail($id)
+    {
+        $user = User::find($id);
+
+        if (!$user) {
+            return response()->json([
+                'message' => 'User not found'
+            ], 404);
+        }
+
+        return response()->json([
+            'data' => $user
+        ]);
+    }
 }

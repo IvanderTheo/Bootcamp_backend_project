@@ -16,7 +16,6 @@ Route::get('/categories', [CategoryController::class, 'index']);
 Route::get('/categories/{category}', [CategoryController::class, 'show']);
 Route::get('/courses', [CourseController::class, 'index']);
 Route::get('/courses/{course}', [CourseController::class, 'show']);
-Route::post('/categories', [CategoryController::class, 'store']);
 
 
 Route::get('/instructors/course-count', [InstructorController::class, 'courseCount']);
@@ -27,6 +26,9 @@ Route::middleware('auth:sanctum')->group(function () {
     // Auth endpoints
     Route::post('/auth/logout', [AuthController::class, 'logout']);
     Route::get('/auth/me', [AuthController::class, 'me']);
+
+    Route::get('/users', [AuthController::class, 'user']);
+    Route::get('/users/{id}', [AuthController::class, 'userDetail']);
 
     // Protected write operations
     Route::post('/categories', [CategoryController::class, 'store']);
