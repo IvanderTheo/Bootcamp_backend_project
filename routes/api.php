@@ -39,6 +39,6 @@ Route::middleware('auth:sanctum')->group(function () {
 
 
     Route::middleware('admin')->group(function(): void {
-    Route:post('/categories',[CategoryController::class,'store']);
+        Route::post('/categories',[CategoryController::class,'store']);
     });
 });
