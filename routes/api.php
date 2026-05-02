@@ -16,6 +16,7 @@ Route::get('/categories', [CategoryController::class, 'index']);
 Route::get('/categories/{category}', [CategoryController::class, 'show']);
 Route::get('/courses', [CourseController::class, 'index']);
 Route::get('/courses/{course}', [CourseController::class, 'show']);
+Route::post('/categories', [CategoryController::class, 'store']);
 
 
 Route::get('/instructors/course-count', [InstructorController::class, 'courseCount']);
