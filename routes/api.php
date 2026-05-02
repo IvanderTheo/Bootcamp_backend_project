@@ -36,4 +36,9 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::post('/courses', [CourseController::class, 'store']);
     Route::put('/courses/{course}', [CourseController::class, 'update']);
     Route::delete('/courses/{course}', [CourseController::class, 'destroy']);
+
+
+    Route::middleware('admin')->group(function(): void {
+    Route:post('/categories',[CategoryController::class,'store']);
+    });
 });
